@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Básica</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .calculadora {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 300px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 8px;
+            margin: 8px 0;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #varC {
+            background-color: #e9ecef;
+        }
+    </style>
+
+    <script>
+        function Sumar(){
+            let a = document.querySelector("#varA").value
+            let b = document.querySelector("#varB").value
+
+            let numA = parseFloat(a)
+            let numB = parseFloat(b)
+
+            let resultado = numA + numB
+            document.querySelector("#varC").value = resultado
+        }
+
+        function Restar(){
+            let a = document.querySelector("#varA").value
+            let b = document.querySelector("#varB").value
+
+            let numA = parseFloat(a)
+            let numB = parseFloat(b)
+
+            let resultado = numA - numB
+            document.querySelector("#varC").value = resultado
+        }
+
+        function Multiplicar(){
+            let a = document.querySelector("#varA").value
+            let b = document.querySelector("#varB").value
+
+            let numA = parseFloat(a)
+            let numB = parseFloat(b)
+
+            let resultado = numA * numB
+            document.querySelector("#varC").value = resultado
+        }
+
+        function Dividir(){
+            let a = document.querySelector("#varA").value
+            let b = document.querySelector("#varB").value
+
+            let numA = parseFloat(a)
+            let numB = parseFloat(b)
+
+            if(numB === 0){
+                alert("No se puede dividir entre cero 😅")
+                return
+            }
+
+            let resultado = numA / numB
+            document.querySelector("#varC").value = resultado
+        }
+
+        function Limpiar(){
+            document.querySelector("#varA").value = ""
+            document.querySelector("#varB").value = ""
+            document.querySelector("#varC").value = ""
+        }
+    </script>
+</head>
+<body>
+    <div class="calculadora">
+        <h2>Calculadora Básica</h2>
+        <input type="text" id="varA" placeholder="Ingrese A"><br>
+        <input type="text" id="varB" placeholder="Ingrese B"><br>
+
+        <button onclick="Sumar()">+</button>
+        <button onclick="Restar()">−</button>
+        <button onclick="Multiplicar()">×</button>
+        <button onclick="Dividir()">÷</button>
+        <button onclick="Limpiar()">C</button><br>
+
+        <input type="text" id="varC" readonly placeholder="Resultado">
+    </div>
+</body>
+</html>
+
